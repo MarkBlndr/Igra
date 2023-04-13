@@ -1,5 +1,6 @@
 //#include "pch.h"
 #include "BlndrApp.h"
+#include <iostream>
 
 namespace Blndr
 {
@@ -7,7 +8,7 @@ namespace Blndr
 	{
 		while (true)
 		{
-			//std::cout << "Blndr running\n";
+			std::cout << "Blndr running\n";
 		}
 	}
 }
