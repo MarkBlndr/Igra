@@ -7,7 +7,8 @@ namespace Blndr
 	{
 		while (true)
 		{
-			std::cout << "Blndr running\n";
+			//std::cout << "Blndr running\n";
+			//BlndrApp::OnUpdate();
 		}
 	}
 }
