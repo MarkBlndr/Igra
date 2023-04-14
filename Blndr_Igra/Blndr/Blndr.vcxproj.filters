@@ -18,7 +18,13 @@
     <ClCompile Include="src\BlndrApp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="include\pch.cpp">
+    <ClCompile Include="src\pch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GLFWCode\GLFWImplementation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -32,7 +38,16 @@
     <ClInclude Include="include\Blndr.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\pch.h">
+    <ClInclude Include="src\pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameWindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\WindowImplementation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GLFWCode\GLFWImplementation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -15,7 +15,7 @@ else()
 	add_definitions(-DBLNDR_LINUX)
 endif()
 
-add_subdirectory(../glfw)
+add_subdirectory(../glfw glfw)
 add_subdirectory(Blndr)    #[[Make sure these add_directories come after definitons]]
 add_subdirectory(Igra)
 
