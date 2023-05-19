@@ -2,6 +2,9 @@
 
 #include "BlndrUtil.h"
 
+#include "glad/glad.h"
+#include "GLFW/glfw3.h"
+
 namespace Blndr
 {
 	class BLNDR_API BlndrApp

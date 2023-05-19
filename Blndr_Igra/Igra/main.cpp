@@ -19,7 +19,6 @@ public:
 		}
 	}
 
-
 	virtual void OnUpdate() override
 	{
 		Blndr::GameWindow::SwapBuffers();

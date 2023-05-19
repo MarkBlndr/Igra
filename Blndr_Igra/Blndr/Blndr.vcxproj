@@ -37,8 +37,14 @@
     <ClInclude Include="src\WindowImplementation.h" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\glad\glad.vcxproj">
+      <Project>{ded6b666-94e5-473b-b61b-c685b38e04d6}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\glfw_build\src\glfw.vcxproj">
       <Project>{46deeb82-31a9-3ecd-94d8-b90996356334}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\stbi\stbi.vcxproj">
+      <Project>{62728a36-8a32-4cc9-863b-f6d787ba7f57}</Project>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -130,7 +136,7 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(SolutionDir)Blndr\src;$(SolutionDir)..\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Blndr\src;$(SolutionDir)stbi;$(SolutionDir)glad\include;$(SolutionDir)..\glfw\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -148,7 +154,7 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(SolutionDir)Blndr\src;$(SolutionDir)..\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Blndr\src;$(SolutionDir)stbi;$(SolutionDir)glad\include;$(SolutionDir)..\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

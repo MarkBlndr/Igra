@@ -16,7 +16,7 @@ else()
 endif()
 
 add_subdirectory(../glfw glfw)
-add_subdirectory(Blndr)    #[[Make sure these add_directories come after definitons]]
+add_subdirectory(Blndr)
 add_subdirectory(Igra)
 
 set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT Igra)
