@@ -13,15 +13,6 @@ namespace Blndr
 {
 	void BlndrApp::Run()
 	{
-		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-		{
-			BLNDR_ERROR("Failed to initialize GLAD");
-			return;
-		}
-
-		glEnable(GL_BLEND);
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
 		float vdata[] = {
 			200.0f, 100.0f, 0.0, 0.0,
 			200.0f, 200.0f, 0.0, 1.0,
@@ -53,11 +44,11 @@ namespace Blndr
 		glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
 		glEnableVertexAttribArray(1);
 
+		Image sImage{ "../Assets/Images/test.png" };
+		sImage.Activate();
 
 		Shader sProgram{ "../Assets/Shaders/DefaultVertexShader.glsl", "../Assets/Shaders/DefaultFragmentShader.glsl" };
 		sProgram.Pass2FloatValues("screenSize", GameWindow::GetWidth(), GameWindow::GetHeight());
-
-		Image sImage{ "../Assets/Images/test.png" };
 
 		while (true)
 		{
@@ -66,7 +57,6 @@ namespace Blndr
 
 			glBindVertexArray(VAO);
 			sProgram.Activate();
-			sImage.Activate();
 			glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
 			OnUpdate();

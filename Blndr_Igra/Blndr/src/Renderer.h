@@ -1,5 +1,6 @@
 #pragma once
 
+#include "pch.h"
 #include "BlndrUtil.h"
 #include "Image.h"
 #include "Shader.h"
@@ -12,14 +13,34 @@ namespace Blndr
 	public:
 		Renderer();
 
-		void Draw(Image& img, Shader& shader, int xCoord, int ycoord);
-		void Draw(Image& img, int xCoord, int ycoord);
+		struct TextureBox
+		{
+			int xTexCoord{ 0 };
+			int yTexCoord{ 0 };
+			int texWidth{ 0 };
+			int texHeight{ 0 };
 
-		void Draw(Image& img, float xTexCoord, float yTexCoord, Shader& shader, int xCoord, int ycoord);
-		void Draw(Image& img, float xTexCoord, float yTexCoord, int xCoord, int ycoord);
+			TextureBox(int xOnPicture, int yOnPicture, int boxWidth, int boxHeight) :
+				xTexCoord(xOnPicture), yTexCoord(yOnPicture), texWidth(boxWidth), texHeight(boxHeight) {};
+		};
+
+		struct ScreenCoords
+		{
+			int xCoord{ 0 };
+			int yCoord{ 0 };
+
+			ScreenCoords(int x, int y) : xCoord(x), yCoord(y) {};
+		};
+
+		void Draw(Image& img, Shader& shader, ScreenCoords coords);
+		void Draw(Image& img, ScreenCoords coords);
+
+		void Draw(Image& img, TextureBox texCoords, Shader& shader, ScreenCoords coords);
+		void Draw(Image& img, TextureBox texCoords, ScreenCoords coords);
 
 	private:
-		ImplRenderer* mImplementation{ nullptr };
+		std::unique_ptr<ImplRenderer> mImplementation{ nullptr };
+		Shader mDefaultShader{ "../Assets/Shaders/DefaultVertexShader.glsl", "../Assets/Shaders/DefaultFragmentShader.glsl" };
 	};
 
 }
