@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "Renderer.h"
+#include "GameWindow.h"
 #include "OpenGLCode/OpenGLRenderer.h"
 
 namespace Blndr
@@ -20,6 +21,7 @@ namespace Blndr
 
 	void Renderer::Draw(Image& img, ScreenCoords coords)
 	{
+		mDefaultShader.Pass2FloatValues("screenSize", GameWindow::GetWidth(), GameWindow::GetHeight());
 		mImplementation->Draw(img, { 0, 0, img.GetWidth(), img.GetHeight() }, mDefaultShader, coords);
 	}
 
@@ -30,6 +32,7 @@ namespace Blndr
 
 	void Renderer::Draw(Image& img, TextureBox texCoords, ScreenCoords coords)
 	{
+		mDefaultShader.Pass2FloatValues("screenSize", GameWindow::GetWidth(), GameWindow::GetHeight());
 		mImplementation->Draw(img, texCoords, mDefaultShader, coords);
 	}
 }

@@ -51,5 +51,8 @@ namespace Blndr
 
 		glBindVertexArray(mVAO);
 		glBufferData(GL_ARRAY_BUFFER, sizeof(vdata), vdata, GL_STATIC_DRAW);
+
+		shader.Activate();
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 	}
 }
