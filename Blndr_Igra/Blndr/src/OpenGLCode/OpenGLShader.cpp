@@ -1,4 +1,4 @@
-#include "../pch.h"
+#include "pch.h"
 #include "OpenGLShader.h"
 #include "glad/glad.h"
 
@@ -140,6 +140,11 @@ namespace Blndr
 		glDeleteShader(fragment);
 	}
 
+	OpenGLShader::~OpenGLShader()
+	{
+		glDeleteProgram(mProgram);
+	}
+
 	void OpenGLShader::Activate()
 	{
 		glUseProgram(mProgram);
@@ -147,12 +152,14 @@ namespace Blndr
 	
 	void OpenGLShader::Pass2FloatValues(const std::string& name, float val1, float val2)
 	{
+		glUseProgram(mProgram);
 		GLint location{ glGetUniformLocation(mProgram, name.c_str()) };
 		glUniform2f(location, val1, val2);
 	}
 
 	void OpenGLShader::Pass2FloatValues(std::string&& name, float val1, float val2)
 	{
+		glUseProgram(mProgram);
 		GLint location{ glGetUniformLocation(mProgram, name.c_str()) };
 		glUniform2f(location, val1, val2);
 	}

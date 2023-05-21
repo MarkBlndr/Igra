@@ -10,6 +10,8 @@ namespace Blndr
 	public:
 		OpenGLShader(const std::string& vertexFile, const std::string& fragmentFile);
 		OpenGLShader(std::string&& vertexFile, std::string&& fragmentFile);
+		~OpenGLShader();
+		
 		virtual void Activate() override;
 
 		virtual void Pass2FloatValues(const std::string& name, float val1, float val2) override;

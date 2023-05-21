@@ -1,11 +1,13 @@
 #include "pch.h"
 #include "BlndrApp.h"
+#include "GameWindow.h"
 
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
 #include "stb_image.h"
 
 #include "Shader.h"
+#include "Image.h"
 
 namespace Blndr
 {
@@ -49,13 +51,13 @@ namespace Blndr
 		glEnableVertexAttribArray(0);
 
 		glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
-		glEnableVertexAttribArray(2);
-
-
-
+		glEnableVertexAttribArray(1);
 
 
 		Shader sProgram{ "../Assets/Shaders/DefaultVertexShader.glsl", "../Assets/Shaders/DefaultFragmentShader.glsl" };
+		sProgram.Pass2FloatValues("screenSize", GameWindow::GetWidth(), GameWindow::GetHeight());
+
+		Image sImage{ "../Assets/Images/test.png" };
 
 		while (true)
 		{
@@ -64,6 +66,7 @@ namespace Blndr
 
 			glBindVertexArray(VAO);
 			sProgram.Activate();
+			sImage.Activate();
 			glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
 			OnUpdate();

@@ -16,7 +16,7 @@ namespace Blndr
 	Shader::Shader(std::string&& vertexFile, std::string&& fragmentFile)
 	{
 #ifdef BLNDR_OPENGL
-		mImplementation = std::unique_ptr<ImplShader>{ new OpenGLShader{vertexFile, fragmentFile} };
+		mImplementation = std::unique_ptr<ImplShader>{ new OpenGLShader{std::move(vertexFile), std::move(fragmentFile)} };
 #else
 		#only_OpenGL_is_implemented_at_the_moment
 #endif
