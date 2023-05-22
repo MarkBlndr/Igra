@@ -16,6 +16,8 @@ else()
 endif()
 
 add_subdirectory(../glfw glfw)
+add_subdirectory(glad)
+add_subdirectory(stbi)
 add_subdirectory(Blndr)
 add_subdirectory(Igra)
 

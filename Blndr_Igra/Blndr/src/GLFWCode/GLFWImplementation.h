@@ -17,6 +17,5 @@ namespace Blndr
 
 	private:
 		GLFWwindow* mWindow{ nullptr };
-
 	};
 }

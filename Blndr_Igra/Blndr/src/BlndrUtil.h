@@ -18,3 +18,14 @@ int main()\
 	game.Run();\
 	return 0;\
 }
+
+#if BLNDR_DEBUG==2
+	#define BLNDR_LOG(x) std::cout << "LOG: " << x << std::endl;
+	#define BLNDR_ERROR(x) std::cout << "ERROR: " << x << std::endl;
+#elif BLNDR_DEBUG==1
+	#define BLNDR_LOG(x);
+	#define BLNDR_ERROR(x) std::cout << "ERROR: " << x << std::endl;
+#else
+	#define BLNDR_LOG(x);
+	#define BLNDR_ERROR(x);
+#endif

@@ -1,0 +1,30 @@
+#pragma once
+
+#include "pch.h"
+#include "BlndrUtil.h"
+#include "Image.h"
+#include "Shader.h"
+#include "ImplRenderer.h"
+#include "RendererTypes.h"
+
+namespace Blndr
+{
+	class BLNDR_API Renderer 
+	{
+	public:
+		Renderer();
+
+		void Draw(Image& img, Shader& shader, ScreenCoords coords);
+		void Draw(Image& img, ScreenCoords coords);
+
+		void Draw(Image& img, TextureBox texCoords, Shader& shader, ScreenCoords coords);
+		void Draw(Image& img, TextureBox texCoords, ScreenCoords coords);
+
+		void Clear();
+
+	private:
+		std::unique_ptr<ImplRenderer> mImplementation{ nullptr };
+		Shader mDefaultShader;
+	};
+
+}
