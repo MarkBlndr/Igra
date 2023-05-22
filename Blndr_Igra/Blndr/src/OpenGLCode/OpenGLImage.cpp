@@ -35,6 +35,8 @@ namespace Blndr
 
 	Blndr::OpenGLImage::OpenGLImage(std::string&& imageFile)
 	{
+
+		std::cout << imageFile << std::endl;
 		glGenTextures(1, &mImage);
 		glBindTexture(GL_TEXTURE_2D, mImage);
 

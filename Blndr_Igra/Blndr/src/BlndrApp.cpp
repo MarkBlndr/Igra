@@ -23,20 +23,10 @@ namespace Blndr
 
 	void BlndrApp::Run()
 	{
-		Renderer renderer;
-
-		Image image{ "../Assets/Images/test2.png" };
-		image.Activate();
-
-		Shader sProgram{ "../Assets/Shaders/DefaultVertexShader.glsl", "../Assets/Shaders/DefaultFragmentShader.glsl" };
-		sProgram.Pass2FloatValues("screenSize", GameWindow::GetWidth(), GameWindow::GetHeight());
-
 		mNextFrameTime = std::chrono::steady_clock::now();
 
 		while (!mGameWindowShouldClose)
 		{
-			renderer.Clear();
-			renderer.Draw(image, { 200, 100 });
 			OnUpdate();
 
 			std::this_thread::sleep_until(mNextFrameTime);
