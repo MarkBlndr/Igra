@@ -1,9 +1,9 @@
 #pragma once
 
+#include "pch.h"
 #include "BlndrUtil.h"
 
-#include "glad/glad.h"
-#include "GLFW/glfw3.h"
+constexpr int FPS{ 60 };
 
 namespace Blndr
 {
@@ -13,13 +13,7 @@ namespace Blndr
 		virtual void OnUpdate() = 0;
 		void Run();
 	private:
+		std::chrono::milliseconds mFrameDuration{ std::chrono::milliseconds{1000} / FPS };
+		std::chrono::steady_clock::time_point mNextFrameTime;
 	};
 }
-
-/*
-* Notes:
-*	Microsoft compiler wants __declspec(dllexport) - this shows the compiler that this class should be visible to the
-*		user in the .dll
-*		It should say __declspec(dllimport) when the code is included in the Game project
-*		Use macro to get around the problem
-*/

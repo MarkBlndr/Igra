@@ -5,14 +5,14 @@
 
 namespace Blndr
 {
-	Renderer::Renderer()
-	{
 #ifdef BLNDR_OPENGL
-		mImplementation = std::unique_ptr<ImplRenderer>{ new OpenGLRenderer };
+		Renderer::Renderer():
+			mImplementation(std::unique_ptr<ImplRenderer>{ new OpenGLRenderer }),
+			mDefaultShader{ "../Assets/Shaders/DefaultVertexShader.glsl", "../Assets/Shaders/DefaultFragmentShader.glsl" } 
+		{}
 #else
 		#only_OpenGL_is_implemented_at_the_moment
 #endif
-	}
 
 	void Renderer::Draw(Image& img, Shader& shader, ScreenCoords coords)
 	{
@@ -34,5 +34,10 @@ namespace Blndr
 	{
 		mDefaultShader.Pass2FloatValues("screenSize", GameWindow::GetWidth(), GameWindow::GetHeight());
 		mImplementation->Draw(img, texCoords, mDefaultShader, coords);
+	}
+
+	void Renderer::Clear()
+	{
+		mImplementation->Clear();
 	}
 }

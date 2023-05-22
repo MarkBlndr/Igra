@@ -76,9 +76,8 @@ namespace Blndr
 		std::string vShader;
 		std::ifstream vFile{ vertexFile };
 		std::string line;
-		while (vFile)
+		while (std::getline(vFile, line))
 		{
-			std::getline(vFile, line);
 			vShader += line;
 			vShader += "\n";
 		}
@@ -102,15 +101,16 @@ namespace Blndr
 
 		std::string fShader;
 		std::ifstream fFile{ fragmentFile };
-		while (fFile)
+		while (std::getline(fFile, line))
 		{
-			std::getline(fFile, line);
 			fShader += line;
 			fShader += "\n";
 		}
 		fFile.close();
 
 		const char* cFShader = fShader.c_str();
+
+		//std::cout << fShader << std::endl;
 
 		unsigned int fragment;
 		fragment = glCreateShader(GL_FRAGMENT_SHADER);

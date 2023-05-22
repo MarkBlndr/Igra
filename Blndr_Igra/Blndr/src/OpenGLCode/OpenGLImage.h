@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../pch.h"
+#include "pch.h"
 #include "../ImplImage.h"
 
 namespace Blndr

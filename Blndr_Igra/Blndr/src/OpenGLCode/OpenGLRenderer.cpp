@@ -40,7 +40,7 @@ namespace Blndr
 		glEnableVertexAttribArray(1);
 	}
 
-	void OpenGLRenderer::Draw(Image& img, Renderer::TextureBox texCoords, Shader& shader, Renderer::ScreenCoords coords)
+	void OpenGLRenderer::Draw(Image& img, TextureBox texCoords, Shader& shader, ScreenCoords coords)
 	{
 		float vdata[] = {
 			coords.xCoord, coords.yCoord, texCoords.xTexCoord / float(img.GetWidth()), texCoords.yTexCoord / float(img.GetHeight()),
@@ -54,5 +54,11 @@ namespace Blndr
 
 		shader.Activate();
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+	}
+
+	void OpenGLRenderer::Clear()
+	{
+		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+		glClear(GL_COLOR_BUFFER_BIT);
 	}
 }

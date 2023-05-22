@@ -1,4 +1,6 @@
 #pragma once
+
+#include "pch.h"
 #include "ImplRenderer.h"
 
 namespace Blndr
@@ -8,7 +10,8 @@ namespace Blndr
 	public:
 		OpenGLRenderer();
 
-		virtual void Draw(Image& img, Renderer::TextureBox texCoords, Shader& shader, Renderer::ScreenCoords coords) override;
+		virtual void Draw(Image& img, TextureBox texCoords, Shader& shader, ScreenCoords coords) override;
+		virtual void Clear() override;
 
 	private:
 		unsigned int mVBO, mVAO, mEBO;
