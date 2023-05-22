@@ -38,6 +38,7 @@ namespace Blndr
 		mPosition.yCoord += amount;
 	}
 
+	// Slight change to the overlap function, I was having trouble using the one provided.
 	bool Unit::Overlap(const Unit& b) const
 	{
 		int left_a{ mPosition.xCoord };
