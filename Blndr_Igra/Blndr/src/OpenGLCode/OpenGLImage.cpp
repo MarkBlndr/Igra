@@ -49,22 +49,13 @@ namespace Blndr
 		stbi_set_flip_vertically_on_load(true);
 		unsigned char* data = stbi_load(imageFile.c_str(), &mWidth, &mHeight, &nrChannels, 0);
 
-		/*if (data == nullptr)
+		if (data == nullptr)
 		{
 			std::cout << "ERROR: Image reading has failed" << std::endl;
 		}
 
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, mWidth, mHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
-		glGenerateMipmap(GL_TEXTURE_2D);*/
-
-		if (data)
-		{
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, mWidth, mHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
-			glGenerateMipmap(GL_TEXTURE_2D);
-		}
-		else {
-			std::cout << "ERROR: Image reading has failed" << std::endl;
-		}
+		glGenerateMipmap(GL_TEXTURE_2D);
 
 		stbi_image_free(data);
 	}
