@@ -6,6 +6,7 @@
 #include "Shader.h"
 #include "ImplRenderer.h"
 #include "RendererTypes.h"
+#include "Unit.h"
 
 namespace Blndr
 {
@@ -19,6 +20,9 @@ namespace Blndr
 
 		void Draw(Image& img, TextureBox texCoords, Shader& shader, ScreenCoords coords);
 		void Draw(Image& img, TextureBox texCoords, ScreenCoords coords);
+
+		void Draw(Unit& unit, Shader& shader);
+		void Draw(Unit& unit);
 
 		void Clear();
 

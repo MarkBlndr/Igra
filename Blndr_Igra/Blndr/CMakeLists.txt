@@ -14,6 +14,9 @@ set(HEADER_FILES
 	src/Image.h
 	src/ImplImage.h
 	src/OpenGLCode/OpenGLImage.h
+	src/BlndrEvents.h
+	src/BlndrKeys.h
+	src/Unit.h
 )
 
 set(SOURCE_FILES
@@ -26,6 +29,8 @@ set(SOURCE_FILES
 	src/OpenGLCode/OpenGLShader.cpp
 	src/Image.cpp
 	src/OpenGLCode/OpenGLImage.cpp
+	src/BlndrEvents.cpp
+	src/Unit.cpp
 )
 
 add_library(Blndr SHARED ${HEADER_FILES} ${SOURCE_FILES})

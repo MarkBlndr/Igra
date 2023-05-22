@@ -7,3 +7,5 @@
 #include "../src/Image.h"
 #include "../src/Renderer.h"
 #include "../src/RendererTypes.h"
+#include "../src/BlndrEvents.h"
+#include "../src/BlndrKeys.h"

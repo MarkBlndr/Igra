@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "GameWindow.h"
 #include "GLFWCode/GLFWimplementation.h"
+#include "BlndrEvents.h"
 
 namespace Blndr
 {
@@ -24,6 +25,7 @@ namespace Blndr
 	{
 		return mInstance;
 	}
+
 	void GameWindow::CreateWindow(int width, int height, const std::string& windowName)
 	{
 		mInstance->mImplementation->CreateWindow(width, height, windowName);
@@ -48,6 +50,22 @@ namespace Blndr
 	{
 		return mInstance->mImplementation->GetHeight();
 	}
+
+	void GameWindow::SetKeyPressedCallback(std::function<void(const KeyPressed&)> callbackFunc)
+	{
+		mImplementation->SetKeyPressedCallback(callbackFunc);
+	}
+
+	void GameWindow::SetKeyReleasedCallback(std::function<void(const KeyReleased&)> callbackFunc)
+	{
+		mImplementation->SetKeyReleasedCallback(callbackFunc);
+	}
+
+	void GameWindow::SetWindowCloseCallback(std::function<void()> callbackFunc)
+	{
+
+	}
+
 	GameWindow::~GameWindow()
 	{
 		if (mImplementation != nullptr) {

@@ -3,6 +3,7 @@
 #include "pch.h"
 #include "BlndrUtil.h"
 #include "WindowImplementation.h"
+#include "BlndrEvents.h"
 
 namespace Blndr
 {
@@ -20,6 +21,10 @@ namespace Blndr
 
 		static int GetWidth();
 		static int GetHeight();
+
+		void SetKeyPressedCallback(std::function<void(const KeyPressed&)> callbackFunc);
+		void SetKeyReleasedCallback(std::function<void(const KeyReleased&)> callbackFunc);
+		void SetWindowCloseCallback(std::function<void()> callbackFunc);
 
 		~GameWindow();
 

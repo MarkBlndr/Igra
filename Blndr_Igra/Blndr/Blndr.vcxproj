@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\BlndrApp.cpp" />
+    <ClCompile Include="src\BlndrEvents.cpp" />
     <ClCompile Include="src\GameWindow.cpp" />
     <ClCompile Include="src\GLFWCode\GLFWImplementation.cpp" />
     <ClCompile Include="src\Image.cpp" />
@@ -36,6 +37,7 @@
   <ItemGroup>
     <ClInclude Include="include\Blndr.h" />
     <ClInclude Include="src\BlndrApp.h" />
+    <ClInclude Include="src\BlndrEvents.h" />
     <ClInclude Include="src\BlndrUtil.h" />
     <ClInclude Include="src\GameWindow.h" />
     <ClInclude Include="src\GLFWCode\GLFWImplementation.h" />
