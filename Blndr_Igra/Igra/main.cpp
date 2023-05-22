@@ -11,9 +11,8 @@ public:
 
 	virtual void OnUpdate() override
 	{
-		//renderer.Clear();
-		//renderer.Draw(back, {0,0});
-		//renderer.Draw(Unit);
+		renderer.Clear();
+		renderer.Draw(unit);
 	}
 
 	void MyKeyPressedFunc(const Blndr::KeyPressed& e)
@@ -28,13 +27,9 @@ public:
 			unit.UpdateYCoord(-20);
 	}
 
-
-
-
-
 private:
 	Blndr::Renderer renderer;
-
+	Blndr::Unit unit{ "../Assets/Images/mario.png" {100, 100} };
 };
 
 BLNDR_GAME_START(Igra);
