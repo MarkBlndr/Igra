@@ -1,1 +1,15 @@
-No unique features implemented at this time. Still fighting with image no showing up on screen.
+Game Description:
+	Use the arrow keys to chase after the little star. Collect as many stars before the time runs out (NOT IMPLEMENTED), or you get bored (DEFINITELY IMPLEMENTED).
+
+Features Implemented:
+	- Random star spawn locations withing the bounds of the game window.
+	- Added "walls" to the edges of the game window. Player character is unable to run off of the screen.
+
+Problems:
+	- The images are not rendering correctly on my machine. I am not entirely sure of the cause, but due to the "glitchy" nature 
+		of them, I think it might have something to do with my GPU driver.
+	- I am unable to render the score on the screen, since images are not displaying properly on my machine, and my idea was to use 1-9 as images to
+		display the score.
+	
+	
+	

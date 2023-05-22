@@ -21,6 +21,8 @@ namespace Blndr
 		void UpdateXCoord(int amount);
 		void UpdateYCoord(int amount);
 
+		bool Overlap(const Unit& b) const;
+
 	private:
 		Image mImage;
 		ScreenCoords mPosition;
