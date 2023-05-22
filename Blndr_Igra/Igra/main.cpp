@@ -29,7 +29,7 @@ public:
 
 private:
 	Blndr::Renderer renderer;
-	Blndr::Unit unit{ "../Assets/Images/mario.png" {100, 100} };
+	Blndr::Unit unit{ "../Assets/Images/mario.png", {100, 100} };
 };
 
 BLNDR_GAME_START(Igra);
