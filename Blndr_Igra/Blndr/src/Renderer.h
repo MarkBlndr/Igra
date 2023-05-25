@@ -21,6 +21,7 @@ namespace Blndr
 		void Draw(Image& img, TextureBox texCoords, Shader& shader, ScreenCoords coords);
 		void Draw(Image& img, TextureBox texCoords, ScreenCoords coords);
 
+		void Draw(Unit& unit, TextureBox texCoords);
 		void Draw(Unit& unit, Shader& shader);
 		void Draw(Unit& unit);
 

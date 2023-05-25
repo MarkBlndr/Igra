@@ -46,6 +46,11 @@ namespace Blndr
 		Draw(unit.mImage, unit.mPosition);
 	}
 
+	void Renderer::Draw(Unit& unit, TextureBox texCoords)
+	{
+		Draw(unit.mImage, texCoords, unit.mPosition);
+	}
+
 	void Renderer::Clear()
 	{
 		mImplementation->Clear();

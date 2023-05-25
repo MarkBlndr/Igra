@@ -10,8 +10,8 @@ namespace Blndr
 	class BLNDR_API Unit
 	{
 	public:
-		Unit(const std::string & image, ScreenCoords coords);
-		Unit(std::string&& image, ScreenCoords coords);
+		Unit(const std::string & image, ScreenCoords coords, int texWidth, int texHeight);
+		Unit(std::string&& image, ScreenCoords coords, int texWidth, int texHeight);
 
 		int GetWidth() const;
 		int GetHeight() const;
@@ -26,6 +26,8 @@ namespace Blndr
 	private:
 		Image mImage;
 		ScreenCoords mPosition;
+		int mTexWidth;
+		int mTexHeight;
 
 		friend class Renderer;
 		friend bool UnitsOverlap(const Unit& a, const Unit& b);

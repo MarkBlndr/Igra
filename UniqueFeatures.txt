@@ -1,15 +1,16 @@
 Game Description:
-	Use the arrow keys to chase after the little star. Collect as many stars before the time runs out (NOT IMPLEMENTED), or you get bored (DEFINITELY IMPLEMENTED).
+	Use the arrow keys to collect as many disks as possible in the alloted time frame. Use the arrow keys to move the robot, touch the disk to collect. Number of disks colleceted will be displayed when time runs out.
 
-Features Implemented:
-	- Random star spawn locations withing the bounds of the game window.
-	- Added "walls" to the edges of the game window. Player character is unable to run off of the screen.
+New Features Implemented: 
+	- Implemented psuedo-random disk spawn locations withing the bounds of the game window.
+	- Implemented "walls" at the edges of the game window. Player character is unable to run off of the screen.
+	- Implemented time based on framerate (not ideal, of course).
+	- Adjusted vdata[] initilization in OpenGLRenderer:Draw(), now image drawn to the screen is the size of the individual sprite texture size as opposed to drawing an image the size of the full sprite sheet, and blowing up the texture to fill the image.
+	- Added texture size variables to Unit class for more accutrate better collision calculations. Collisions now account for sprites, where the texture of the sprite is smaller than the size of the entire sprite sheet image. 
 
-Problems:
-	- The images are not rendering correctly on my machine. I am not entirely sure of the cause, but due to the "glitchy" nature 
-		of them, I think it might have something to do with my GPU driver.
-	- I am unable to render the score on the screen, since images are not displaying properly on my machine, and my idea was to use 1-9 as images to
-		display the score.
+Known issues and idiosyncrasies:
+	- Sprite sheets must be the height of the individual sprite texture (essentially long strips). This is due to the way I initialize the vdata array. A few adjustments, with smarter coordinate calculations could fix this.
+	- Disks can sometimes spawn on the robot, giving the player a "free" point. This is not necesseraly an issue, since the game already has a large luck element. But, this could be adjusted with some additional disk spawn logic.
 	
 	
 	

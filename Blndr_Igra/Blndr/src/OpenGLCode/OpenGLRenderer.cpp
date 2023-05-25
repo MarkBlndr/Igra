@@ -45,14 +45,15 @@ namespace Blndr
 		float vdata[] = {
 			coords.xCoord, coords.yCoord, texCoords.xTexCoord / float(img.GetWidth()), texCoords.yTexCoord / float(img.GetHeight()),
 			coords.xCoord, coords.yCoord + img.GetHeight(), texCoords.xTexCoord / float(img.GetWidth()), (texCoords.yTexCoord + texCoords.texHeight) / float(img.GetHeight()),
-			coords.xCoord + img.GetWidth(), coords.yCoord + img.GetHeight(), (texCoords.xTexCoord + texCoords.texWidth) / float(img.GetWidth()), (texCoords.yTexCoord + texCoords.texHeight) / float(img.GetHeight()),
-			coords.xCoord + img.GetWidth(), coords.yCoord, (texCoords.xTexCoord + texCoords.texWidth) / float(img.GetWidth()), texCoords.yTexCoord / float(img.GetHeight())
+			(coords.xCoord + img.GetWidth()) - (img.GetWidth() - texCoords.texWidth) , coords.yCoord + img.GetHeight(), (texCoords.xTexCoord + texCoords.texWidth) / float(img.GetWidth()), (texCoords.yTexCoord + texCoords.texHeight) / float(img.GetHeight()),
+			(coords.xCoord + img.GetWidth()) - (img.GetWidth() - texCoords.texWidth), coords.yCoord + (img.GetHeight() - texCoords.texHeight), (texCoords.xTexCoord + texCoords.texWidth) / float(img.GetWidth()), texCoords.yTexCoord / float(img.GetHeight())
 		};
 
 		glBindVertexArray(mVAO);
 		glBufferData(GL_ARRAY_BUFFER, sizeof(vdata), vdata, GL_STATIC_DRAW);
 
 		shader.Activate();
+		img.Activate();
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 	}
 

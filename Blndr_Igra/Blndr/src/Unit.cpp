@@ -3,10 +3,10 @@
 
 namespace Blndr
 {
-	Unit::Unit(const std::string& image, ScreenCoords coords) :
-		mImage(image), mPosition(coords) {};
+	Unit::Unit(const std::string& image, ScreenCoords coords, int texWidth, int texHeight) :
+		mImage(image), mPosition(coords), mTexWidth(texWidth), mTexHeight(texHeight) {};
 
-	Unit::Unit(std::string&& image, ScreenCoords coords) : mImage(std::move(image)), mPosition(coords) {};
+	Unit::Unit(std::string&& image, ScreenCoords coords, int texWidth, int texHeight) : mImage(std::move(image)), mPosition(coords), mTexWidth(texWidth), mTexHeight(texHeight) {};
 
 	int Unit::GetWidth() const 
 	{
@@ -42,15 +42,15 @@ namespace Blndr
 	bool Unit::Overlap(const Unit& b) const
 	{
 		int left_a{ mPosition.xCoord };
-		int right_a{ mPosition.xCoord + mImage.GetWidth() };
+		int right_a{ (mPosition.xCoord + mImage.GetWidth()) - (mImage.GetWidth() - mTexWidth) };
 
 		int left_b{ b.mPosition.xCoord };
-		int right_b{ b.mPosition.xCoord + b.mImage.GetWidth() };
+		int right_b{ (b.mPosition.xCoord + b.mImage.GetWidth()) - (b.mImage.GetWidth() - b.mTexWidth)};
 
 		bool x_intersection{ (left_a <= left_b and left_b <= right_a) or (left_b <= left_a and left_a <= right_b) };
 
 		int bot_a{ mPosition.yCoord };
-		int top_a{ mPosition.yCoord + mImage.GetHeight() };
+		int top_a{ (mPosition.yCoord + mImage.GetHeight()) };
 
 		int bot_b{ b.mPosition.yCoord };
 		int top_b{ b.mPosition.yCoord + b.mImage.GetHeight() };
