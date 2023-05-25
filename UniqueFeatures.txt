@@ -3,6 +3,7 @@ Game Description:
 
 New Features Implemented: 
 	- Implemented psuedo-random disk spawn locations withing the bounds of the game window.
+	- Imaplemtned basic disk spinning animation.
 	- Implemented "walls" at the edges of the game window. Player character is unable to run off of the screen.
 	- Implemented time based on framerate (not ideal, of course).
 	- Adjusted vdata[] initilization in OpenGLRenderer:Draw(), now image drawn to the screen is the size of the individual sprite texture size as opposed to drawing an image the size of the full sprite sheet, and blowing up the texture to fill the image.
